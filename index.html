@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portal integrado OVA de Electiva I, Ingeniería de Sistemas, semestre VII">
+<title>Modelo de Transformación Empresarial | OVA Electiva I</title>
+<script src="theme.js">
+</script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="template.css?v=3">
+<script defer src="navigation.js"></script>
+</head>
+<body>
+<svg class="logo-filter" width="0" height="0" aria-hidden="true" focusable="false">
+  <filter id="remove-logo-background" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -7 0 0 0 6.55" result="logoInk"/>
+    <feComposite in="logoInk" in2="SourceAlpha" operator="in"/>
+  </filter>
+  <filter id="university-logo-dark" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -1.65 0 0 0 1.55" result="ink"/>
+    <feComposite in="ink" in2="SourceAlpha" operator="in" result="silhouette"/>
+    <feFlood flood-color="#0c843a" result="green"/>
+    <feComposite in="green" in2="silhouette" operator="in"/>
+  </filter>
+</svg>
+<header class="site-nav" id="index.html">
+  <div class="nav-strip"></div>
+  <div class="nav-container">
+    <a href="index.html" class="university-brand" aria-label="Universidad Simón Bolívar · Inicio">
+      <img class="university-logo" src="assets/unisimon.png" alt="Universidad Simón Bolívar" width="1285" height="301">
+    </a>
+    <a class="course" href="index.html" aria-label="Portal OVA · Inicio">
+      <img class="program-logo" src="assets/ingenieria.png" alt="Ingeniería de Sistemas" width="500" height="500">
+      <span class="program-label">Portal OVA</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNavigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <span>Menú</span>
+    </button>
+    <nav class="nav-links" id="primaryNavigation" aria-label="Navegación principal">
+      <a href="index.html" data-section="home">Inicio</a>
+      <a href="?seccion=proyectos" data-section="projects">Proyectos</a>
+      <a href="?seccion=evaluaciones" data-section="learn">Evaluaciones</a>
+      <a href="?seccion=juegos" data-section="games">Juegos</a>
+      <a href="?seccion=semestres" data-section="archive">Semestres y respaldos</a>
+      <a href="https://kendastar1.github.io/MiPaginaElectivaProfesional1/" class="main-page-link">Página principal</a>
+    </nav>
+    <div class="theme-switch" role="group" aria-label="Apariencia">
+      <button type="button" data-theme-choice="light" aria-pressed="true">☀ Claro</button>
+      <button type="button" data-theme-choice="dark" aria-pressed="false">☾ Oscuro</button>
+    </div>
+  </div>
+  <div class="nav-stripe"></div>
+</header>
+<main>
+
+<section class="hero" id="homeHero" hidden>
+<div class="hero-triangle" aria-hidden="true"></div>
+<canvas class="hero-network" aria-hidden="true"></canvas>
+<div class="hero-fireworks" aria-hidden="true">
+  <span class="firework firework-a"></span>
+  <span class="firework firework-b"></span>
+  <span class="firework firework-c"></span>
+</div>
+<div class="hero-content">
+<div class="eyebrow">PORTAL INTEGRADO OVA · SEMESTRE VII</div>
+<h1>Electiva Profesional I<br><em>Modelo de Transformación Empresarial</em>
+</h1>
+<p>Consulta los proyectos por semestre y practica con las evaluaciones y juegos de cada unidad.</p>
+<div class="actions hero-actions">
+<a class="portal-button" href="?seccion=proyectos">Ver proyectos</a>
+<a class="portal-button secondary" href="?seccion=evaluaciones">Explorar evaluaciones</a>
+</div>
+</div>
+<div class="hero-art">
+<div class="orbit">
+</div>
+<div class="tile t1">01 <small>PASADO</small>↗</div>
+<div class="tile t2">02 <small>PRESENTE</small>↗</div>
+<div class="tile t3">03 <small>FUTURO</small>↗</div>
+</div>
+</section>
+<div class="section-toolbar"><button type="button" class="primary" id="newGroup" hidden>＋ Crear grupo</button></div>
+<div id="app"></div>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<section aria-labelledby="developersHeading">
+<h2 id="developersHeading">Desarrolladores</h2>
+<ul id="members" class="credits-list">
+</ul>
+</section>
+<section class="footer-teacher" aria-labelledby="teacherHeading">
+<h2 id="teacherHeading">Docente</h2>
+<p>Mg. Alvaro Salamanca Landinez</p>
+</section>
+<div class="footer-academic">
+<span>Universidad Simón Bolívar</span>
+<span>Ingeniería de Sistemas · Semestre VII · Electiva I</span>
+</div>
+</div>
+</footer>
+<dialog id="dialog">
+<form method="dialog" id="groupForm">
+<h2>Un nuevo comienzo</h2>
+<p>Crea el espacio de trabajo de tu grupo.</p>
+<label>Semestre académico<input name="term" list="academicPeriods" placeholder="2027-1" maxlength="80" required>
+</label>
+<datalist id="academicPeriods"></datalist>
+<label>Semestre del programa<select name="level" id="programLevel" required>
+</select>
+</label>
+<label>Nombre del grupo<input name="name" placeholder="Grupo 1" required maxlength="80">
+</label>
+<label>Empresa o proyecto<input name="company" placeholder="Cerámica Italia" required maxlength="120">
+</label>
+<div class="actions">
+<button type="button" onclick="document.querySelector('dialog').close()">Cancelar</button>
+<button class="primary" type="submit">Crear grupo</button>
+</div>
+</form>
+</dialog>
+<div id="toast" role="status">
+</div>
+<script src="vendor/supabase-2.119.0.js">
+</script>
+<script src="cloud.js?v=5">
+</script>
+<script src="questions.js?v=2">
+</script>
+<script src="vendor/jspdf-4.2.1.js">
+</script>
+<script src="evidence-pdf.js?v=5">
+</script>
+<script src="evidence.js?v=5">
+</script>
+<script src="portal.js?v=2">
+</script>
+<script defer src="portal-motion.js"></script>
+<script src="game-bank.js"></script>
+<script src="app.js?v=8">
+</script>
+</body>
+</html>
