@@ -33,7 +33,7 @@ function companyLogo(name) {
     : '<span class="company-logo company-initials" aria-hidden="true">' + esc(initials) + '</span>';
 }
 
-const sectionRoutes={projects:'proyectos',learn:'evaluaciones',games:'juegos',archive:'semestres',glossary:'glosario'};
+const sectionRoutes={projects:'proyectos',learn:'evaluaciones',games:'juegos',archive:'semestres'};
 function initialPortalView(){
   const section=new URLSearchParams(location.search).get('seccion');
   return Object.keys(sectionRoutes).find(key=>sectionRoutes[key]===section)||'home';
@@ -45,7 +45,6 @@ function renderPortalHome(){
       <a href="?seccion=proyectos" class="quick-card"><span class="quick-icon" aria-hidden="true">▦</span><h3>Proyectos</h3><p>Consulta los trabajos y documentos por grupo y semestre.</p></a>
       <a href="?seccion=evaluaciones" class="quick-card"><span class="quick-icon" aria-hidden="true">✓</span><h3>Evaluaciones</h3><p>Responde 30 preguntas por corte y descarga tu evidencia.</p></a>
       <a href="?seccion=juegos" class="quick-card"><span class="quick-icon" aria-hidden="true">♧</span><h3>Aprende jugando</h3><p>Practica con el ahorcado, la sopa de letras y el apareamiento.</p></a>
-      <a href="?seccion=glosario" class="quick-card"><span class="quick-icon" aria-hidden="true">Aa</span><h3>Glosario y debates</h3><p>Consulta conceptos por empresa y participa en el foro.</p></a>
       <a href="?seccion=semestres" class="quick-card"><span class="quick-icon" aria-hidden="true">↺</span><h3>Semestres y respaldos</h3><p>Consulta periodos, respaldos y evidencias.</p></a>
     </div>
   </section>`;

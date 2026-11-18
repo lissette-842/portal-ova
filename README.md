@@ -13,7 +13,3 @@ python -m http.server 8001 --bind 127.0.0.1
 ```
 
 Abre [http://127.0.0.1:8001/](http://127.0.0.1:8001/). El portal requiere Internet para consultar Supabase.
-
-## Glosario y debates
-
-El [glosario por empresa](https://lissette-842.github.io/portal-ova/?seccion=glosario) reúne 55 conceptos iniciales de nueve empresas. Selecciona una empresa para buscar o agregar un término. En **Ver debates** puedes abrir una conversación y responder con un nombre o alias público. Los aportes se comparten mediante Supabase.
