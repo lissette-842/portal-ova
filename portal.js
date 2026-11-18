@@ -40,6 +40,7 @@ function initialPortalView(){
 }
 function renderPortalHome(){
   $('#app').innerHTML=`<section class="quick-cards" aria-labelledby="learningTitle">
+    <a class="course" href="index.html" aria-label="Portal OVA · Inicio"><img class="program-logo" src="assets/ingenieria.png" alt="Ingeniería de Sistemas" width="64" height="64"><span class="program-label">Portal OVA</span></a>
     <div class="section-header"><h2 id="learningTitle">Centro de aprendizaje</h2></div>
     <div class="quick-cards-grid">
       <a href="?seccion=proyectos" class="quick-card"><span class="quick-icon" aria-hidden="true">▦</span><h3>Proyectos</h3><p>Consulta los trabajos y documentos por grupo y semestre.</p></a>
