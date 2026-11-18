@@ -15,11 +15,11 @@
 .theme-switch{display:flex;gap:3px;background:#edf2e9;border:1px solid var(--border);padding:3px;border-radius:10px}
 .theme-switch button{border:0;background:transparent;padding:7px 10px;font-size:11px;border-radius:7px;white-space:nowrap}
 .theme-switch button[aria-pressed="true"]{background:var(--green);color:white}
-html[data-theme="dark"]{--green:#63ec9e;--lime:#d6edac;--ink:#e7f0e9;--muted:#acbdb2;--border:#35493e;color-scheme:dark}
-html[data-theme="dark"] body{background:#070909}
-html[data-theme="dark"] aside,html[data-theme="dark"] .card,html[data-theme="dark"] .stat,html[data-theme="dark"] .phase,html[data-theme="dark"] .question,html[data-theme="dark"] dialog{background:#111613}
-html[data-theme="dark"] button,html[data-theme="dark"] input,html[data-theme="dark"] select{background:#24362b;color:var(--ink)}
-html[data-theme="dark"] button:hover{background:#344c3b}
+html[data-theme="dark"]{--green:#9aceac;--lime:#d6edac;--ink:#e6ece8;--muted:#bcc9c1;--border:#53665b;color-scheme:dark}
+html[data-theme="dark"] body{background:var(--canvas)}
+html[data-theme="dark"] aside,html[data-theme="dark"] .card,html[data-theme="dark"] .stat,html[data-theme="dark"] .phase,html[data-theme="dark"] .question,html[data-theme="dark"] dialog{background:var(--surface)}
+html[data-theme="dark"] button,html[data-theme="dark"] input,html[data-theme="dark"] select{background:#35493f;color:var(--ink)}
+html[data-theme="dark"] button:hover{background:#41594b}
 html[data-theme="dark"] nav button{background:transparent;color:#bbcdc0}
 html[data-theme="dark"] nav button.active{background:#2d4634;color:#c7efce}
 html[data-theme="dark"] .hero{background:#253a2a}
@@ -28,7 +28,7 @@ html[data-theme="dark"] .hero p,html[data-theme="dark"] .eyebrow,html[data-theme
 html[data-theme="dark"] .orbit,html[data-theme="dark"] .orbit:after{border-color:#4a6247}
 html[data-theme="dark"] .tile{background:#304837;color:#e6f0df}
 html[data-theme="dark"] .t1{background:#435b39}
-html[data-theme="dark"] .t2{background:#1c6a49;color:#fff}
+html[data-theme="dark"] .t2{background:#1c6a49;color:#e6ebe7}
 html[data-theme="dark"] .badge,html[data-theme="dark"] .tag,html[data-theme="dark"] .group-icon,html[data-theme="dark"] .stat .icon{background:#2b3e2f;color:#c2ddba}
 html[data-theme="dark"] .feature{border-color:#729d75}
 html[data-theme="dark"] .phase-dots span{background:#3a4d3c}
@@ -36,13 +36,13 @@ html[data-theme="dark"] .phase-dots span.done{background:#9bc57b}
 html[data-theme="dark"] .note,html[data-theme="dark"] .feedback{background:#2c4332;color:#e0eddf}
 html[data-theme="dark"] .wrong{background:#51392e;color:#ffe6d7}
 html[data-theme="dark"] .empty{border-color:#5b7560;color:#bdcabe}
-html[data-theme="dark"] .primary,html[data-theme="dark"] .unit-tabs .active,html[data-theme="dark"] .theme-switch button[aria-pressed="true"]{background:#45df85;color:#07150c;border-color:#66f49d}
-html[data-theme="dark"] .primary:hover{background:#73eea6}
+html[data-theme="dark"] .primary,html[data-theme="dark"] .unit-tabs .active,html[data-theme="dark"] .theme-switch button[aria-pressed="true"]{background:#92c9a4;color:#182b20;border-color:#a6cdb1}
+html[data-theme="dark"] .primary:hover{background:#a6d4b5}
 html[data-theme="dark"] .text{background:transparent}
-html[data-theme="dark"] .theme-switch{background:#1b2b21}
+html[data-theme="dark"] .theme-switch{background:#293a31}
 html[data-theme="dark"] .theme-switch button{background:transparent}
-html[data-theme="dark"] .theme-switch button[aria-pressed="true"]{background:#45df85;color:#07150c}
-html[data-theme="dark"] .wordgrid button.selected,html[data-theme="dark"] .match .selected,html[data-theme="dark"] .match .matched{background:#48663c;color:#fff}
+html[data-theme="dark"] .theme-switch button[aria-pressed="true"]{background:#92c9a4;color:#182b20}
+html[data-theme="dark"] .wordgrid button.selected,html[data-theme="dark"] .match .selected,html[data-theme="dark"] .match .matched{background:#48663c;color:#e6ebe7}
 
 @media(max-width:760px){.header-context{justify-content:flex-start}.theme-switch{order:3}}
 
@@ -97,9 +97,9 @@ footer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .word{overflow-wrap:anywhere}
 .wordgrid button{min-height:0}
 #toast{max-width:calc(100vw - 32px);right:16px}
-html[data-theme="dark"] .hero h1 em{color:#59f294}
+html[data-theme="dark"] .hero h1 em{color:#b9d9c2}
 html[data-theme="dark"] .hero{background:linear-gradient(120deg,#090e0b,#13291b)}
-html[data-theme="dark"] .company-logo{background:#fff}
+html[data-theme="dark"] .company-logo{background:#e6ebe7}
 @media(hover:hover){.card:hover,.learning-links button:hover{transform:translateY(-3px);box-shadow:0 9px 24px #163a2719}.primary:hover{transform:translateY(-2px)}}
 @media(max-width:1100px){.learning-links{grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}.hero-art{width:230px}.t2{left:57px}}
 @media(max-width:760px){
@@ -138,8 +138,8 @@ html[data-theme="dark"] .company-logo{background:#fff}
   --spark-light: #589535;
 }
 html[data-theme="dark"] .hero-fireworks {
-  --spark-green: #43f28e;
-  --spark-light: #b4ef79;
+  --spark-green: #8ac6a0;
+  --spark-light: #c1d6ac;
 }
 .firework {
   position: absolute;
