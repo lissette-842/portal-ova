@@ -2,7 +2,7 @@ async function renderGlossary() {
   if (document.querySelector('#glossary')) return;
   const app = document.querySelector('#app');
   app.innerHTML = heading('Glosario y debates', 'Explora los conceptos de cada empresa y conversa sobre su aplicación en los proyectos.') +
-    '<section id="glossary" class="card glossary"></section>';
+    '<section id="glossary" class="glossary"></section>';
   const panel = document.querySelector('#glossary');
   const fold = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const canonical = name => ({lego:'LEGO', 'mc donald':'McDonald’s'}[fold(name)] || name);
@@ -59,18 +59,19 @@ async function renderGlossary() {
   function listTerms() {
     return read('ova_terms','company',company,'title',rows => {
       terms = rows;
-      panel.innerHTML = '<div class="forum-filters"><label>Empresa<select id="forumCompany">' +
+      panel.innerHTML = '<div class="forum-tools"><div class="forum-filters"><label>Empresa<select id="forumCompany">' +
         companies.map(c => '<option' + (c===company?' selected':'') + '>' + esc(c) + '</option>').join('') +
         '</select></label><label>Buscar concepto<input id="forumSearch" type="search" value="' + esc(search) +
         '" placeholder="Término o definición"></label></div>' + form('Agregar término',field('Término','title',120)+field('Definición','body',2000,true)) +
-        '<div class="forum-terms"></div>';
+        '</div><div class="forum-title"><h3>' + esc(company) + '</h3><span id="termCount" role="status"></span></div><div class="forum-terms"></div>';
       panel.querySelector('select').onchange = e => { company=e.target.value; search=''; listTerms(); };
       panel.querySelector('#forumSearch').oninput = e => { search=e.target.value; filter(); };
       submit('ova_terms',{company},() => { search=''; return listTerms(); });
       function filter() {
         const found = terms.filter(t => fold(t.title+' '+t.body).includes(fold(search.trim())));
-        panel.querySelector('.forum-terms').innerHTML = found.map(t => '<article><h3>' + esc(t.title) +
-          '</h3><p>' + esc(t.body) + '</p><button data-term-id="' + esc(t.id) + '">Ver debates</button></article>').join('') ||
+        panel.querySelector('#termCount').textContent = found.length + (found.length === 1 ? ' término' : ' términos');
+        panel.querySelector('.forum-terms').innerHTML = found.map(t => '<article class="forum-term"><h4>' + esc(t.title) +
+          '</h4><p>' + esc(t.body) + '</p><button data-term-id="' + esc(t.id) + '">Ver debates</button></article>').join('') ||
           '<p>No hay términos para esta búsqueda.</p>';
         byId('data-term-id',found,term => { currentTerm=term; listTopics(); });
       }
@@ -79,11 +80,11 @@ async function renderGlossary() {
   }
   function listTopics() {
     return read('ova_topics','term_id',currentTerm.id,'created_at',rows => {
-      panel.innerHTML = button('← Glosario de '+esc(company),'back') + '<h3>' + esc(currentTerm.title) + '</h3><p>' +
-        esc(currentTerm.body) + '</p><h4>Debates</h4>' + form('Abrir un debate',author()+field('Título del debate','title',120)+
-        field('Pregunta o aporte inicial','body',2000,true)) + rows.reverse().map(t => '<article><button data-topic-id="' +
+      panel.innerHTML = '<div class="forum-reading">' + button('← Glosario de '+esc(company),'back') + '<div class="forum-context"><h3>' + esc(currentTerm.title) + '</h3><p>' +
+        esc(currentTerm.body) + '</p></div><h4>Debates</h4>' + form('Abrir un debate',author()+field('Título del debate','title',120)+
+        field('Pregunta o aporte inicial','body',2000,true)) + '<div class="forum-conversation">' + rows.reverse().map(t => '<article class="forum-thread"><button data-topic-id="' +
         esc(t.id) + '">' + esc(t.title) + '</button>' + credit(t) + '</article>').join('') +
-        (rows.length?'':'<p>Aún no hay debates sobre este término. Puedes abrir el primero.</p>');
+        (rows.length?'':'<p>Aún no hay debates sobre este término. Puedes abrir el primero.</p>') + '</div></div>';
       bind('back',listTerms);
       byId('data-topic-id',rows,topic => {currentTopic=topic; listReplies();});
       submit('ova_topics',{term_id:currentTerm.id},listTopics);
@@ -94,10 +95,10 @@ async function renderGlossary() {
   }
   function listReplies() {
     return read('ova_replies','topic_id',currentTopic.id,'created_at',rows => {
-      panel.innerHTML = button('← Debates de '+esc(currentTerm.title),'back') + '<h3>' + esc(currentTopic.title) +
-        '</h3>' + credit(currentTopic) + '<p>' + esc(currentTopic.body) + '</p><h4>Respuestas (' + rows.length + ')</h4>' +
-        rows.map(r => '<article>' + credit(r) + '<p>' + esc(r.body) + '</p></article>').join('') +
-        form('Responder al debate',author()+field('Tu respuesta','body',2000,true));
+      panel.innerHTML = '<div class="forum-reading">' + button('← Debates de '+esc(currentTerm.title),'back') + '<div class="forum-context"><h3>' + esc(currentTopic.title) +
+        '</h3>' + credit(currentTopic) + '<p>' + esc(currentTopic.body) + '</p></div><h4>Respuestas (' + rows.length + ')</h4>' +
+        '<div class="forum-conversation">' + rows.map(r => '<article class="forum-reply">' + credit(r) + '<p>' + esc(r.body) + '</p></article>').join('') +
+        '</div>' + form('Responder al debate',author()+field('Tu respuesta','body',2000,true)) + '</div>';
       bind('back',listTopics);
       submit('ova_replies',{topic_id:currentTopic.id},listReplies);
     });
