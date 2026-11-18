@@ -20,6 +20,7 @@ function render(){
     else link.removeAttribute('aria-current');
   });
   if(view==='home')renderPortalHome();
+  if(view==='glossary')renderGlossary();
   if(view==='projects')renderProjects();
   if(view==='learn')renderLearn();
   if(view==='games')renderGames();

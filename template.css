@@ -44,7 +44,7 @@ html[data-theme="dark"] .university-brand .university-logo {
 .site-nav .course .program-label { display:block; font-size:.77rem; font-weight:800; white-space:nowrap; line-height:1.25; }
 .nav-toggle { display:none; }
 .nav-links {
-  grid-area:links; margin:0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr));
+  grid-area:links; margin:0; display:grid; grid-template-columns:repeat(7,minmax(0,1fr));
   align-items:stretch; gap:8px; min-width:0; overflow:visible;
 }
 .nav-links a {
@@ -188,3 +188,15 @@ html[data-theme="dark"] .question-steps button.answered,html[data-theme="dark"] 
   .footer-academic { flex-direction:column; gap:4px; }
 }
 @media(max-width:360px){.quick-cards-grid {grid-template-columns:1fr}.question-steps{grid-template-columns:repeat(6,minmax(0,1fr))}}
+
+.glossary { max-width:960px; margin-inline:auto; overflow-wrap:anywhere; }
+.forum-filters,.forum-terms { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.glossary article { border-top:1px solid var(--border); padding:1rem 0; }
+.glossary form { display:grid; gap:.7rem; max-width:48rem; }
+.glossary textarea { box-sizing:border-box; width:100%; resize:vertical; font:inherit; padding:.75rem; color:var(--ink); background:var(--surface); border:1px solid var(--border); border-radius:6px; }
+.glossary p { white-space:pre-line; }
+.glossary small { display:block; color:var(--muted); margin-block:.4rem; }
+.forum-compose { margin:1rem 0; padding:.8rem 1rem; border:1px solid var(--border); border-radius:8px; }
+.forum-compose summary { cursor:pointer; color:var(--green); font-weight:700; }
+.glossary form button { justify-self:start; }
+@media(max-width:640px){ .forum-filters,.forum-terms { grid-template-columns:1fr; } }
