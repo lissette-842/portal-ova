@@ -8,10 +8,10 @@
 <script src="theme.js">
 </script>
 <link rel="stylesheet" href="style.css?v=2">
-<link rel="stylesheet" href="template.css?v=6">
+<link rel="stylesheet" href="template.css?v=7">
 <script defer src="navigation.js"></script>
 </head>
-<body>
+<body id="top">
 <svg class="logo-filter" width="0" height="0" aria-hidden="true" focusable="false">
   <filter id="remove-logo-background" color-interpolation-filters="sRGB">
     <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -7 0 0 0 6.55" result="logoInk"/>
@@ -85,21 +85,25 @@
 <div id="app"></div>
 </main>
 <footer class="site-footer">
-<div class="footer-inner">
-<section aria-labelledby="developersHeading">
-<h2 id="developersHeading">Desarrolladores</h2>
-<ul id="members" class="credits-list">
-</ul>
-</section>
-<section class="footer-teacher" aria-labelledby="teacherHeading">
-<h2 id="teacherHeading">Docente</h2>
-<p>Mg. Alvaro Salamanca Landinez</p>
-</section>
-<div class="footer-academic">
-<span>Universidad Simón Bolívar</span>
-<span>Ingeniería de Sistemas · Semestre VII · Electiva I</span>
-</div>
-</div>
+  <div class="footer-inner">
+    <div class="footer-academic">
+      <strong>Universidad Simón Bolívar</strong>
+      <p>Ingeniería de Sistemas<br>Semestre VII · Electiva I</p>
+    </div>
+    <section aria-labelledby="developersHeading">
+      <h2 id="developersHeading">Desarrolladores</h2>
+      <ul id="members" class="credits-list">
+        <li>Lissette Viviana Cárdenas Pallares</li>
+        <li>Jesús Gabriel Rodriguez Rubio</li>
+        <li>Yefrey Sneyder Sanchez Alba</li>
+      </ul>
+    </section>
+    <section aria-labelledby="teacherHeading">
+      <h2 id="teacherHeading">Docente</h2>
+      <p>Mg. Alvaro Salamanca Landinez</p>
+    </section>
+    <a class="footer-top" href="#top">Volver arriba <span aria-hidden="true">↑</span></a>
+  </div>
 </footer>
 <dialog id="dialog">
 <form method="dialog" id="groupForm">
