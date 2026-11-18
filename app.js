@@ -15,7 +15,7 @@ function render(){
   $('#newGroup').hidden=view!=='projects'||Boolean(groupId);
   $('#academicPeriods').innerHTML=state.terms.map(t=>`<option value="${esc(t)}">${esc(periodLabel(t))}</option>`).join('');
   $('#members').innerHTML=state.members.map(name=>`<li>${esc(name)}</li>`).join('');
-  document.querySelectorAll('[data-section]').forEach(link=>{
+  document.querySelectorAll('#primaryNavigation a[data-section]').forEach(link=>{
     if(link.dataset.section===view)link.setAttribute('aria-current','page');
     else link.removeAttribute('aria-current');
   });

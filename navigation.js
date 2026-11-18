@@ -4,7 +4,7 @@
   const navigation = document.getElementById('primaryNavigation');
   if (!header || !toggle || !navigation) return;
 
-  const mobile = window.matchMedia('(max-width: 1150px)');
+  const mobile = window.matchMedia('(max-width: 1240px)');
   function setOpen(open) {
     toggle.setAttribute('aria-expanded', String(open));
     toggle.querySelector('span').textContent = open ? 'Cerrar' : 'Menú';
